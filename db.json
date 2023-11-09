@@ -1,0 +1,49 @@
+{
+  "employee": [
+    {
+      "id": 1,
+      "name": "Deshmukh Somesh",
+      "email": "deshmukhsomesh777@gmail.com",
+      "phone": "9588466302",
+      "sports": "Football"
+    },
+    {
+      "name": "parmar",
+      "email": "deepakparmar",
+      "phone": "84389433493493",
+      "sports": "UpGrade",
+      "active": true,
+      "id": 2
+    },
+    {
+      "name": "Deshmukh Somesh",
+      "email": "deshmukhsomesh777@gmail.com",
+      "phone": "9588466302",
+      "sports": "basketball",
+      "id": 5
+    },
+    {
+      "id": 6,
+      "name": "Deshmukh Somesh",
+      "email": "deshmukhsomesh777@gmail.com",
+      "phone": "9588466302",
+      "sports": "hiphop"
+    },
+    {
+      "id": 7,
+      "name": "fdfdfdfd",
+      "email": "affdfdfd",
+      "phone": "455453532425",
+      "sports": "jumping",
+      "active": true
+    },
+    {
+      "name": "Deshmukh Product Options * Shivkumar",
+      "email": "deshmukhsomesh7777@gmail.com",
+      "phone": "09588466302",
+      "sports": "fdfdd",
+      "active": true,
+      "id": 8
+    }
+  ]
+}

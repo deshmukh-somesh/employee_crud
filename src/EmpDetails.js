@@ -1,35 +1,43 @@
-import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import React from "react";
+import { Modal, Button } from "react-bootstrap";
 
-function EmpDetails() {
-  const { empid } = useParams();
-  const [empdata, empdatachange] = useState({});
+function EmpDetails(props) {
+  const { showModal2, closeModal2, empdata1, targetEmployeeId1 } = props;
 
-  useEffect(() => {
-    fetch("http://localhost:8000/employee/" + empid)
-      .then((res) => {
-        return res.json();
-      })
-      .then((res) => empdatachange(res))
-      .catch((err) => {
-        //   console.log(err.message);
-      });
-  }, [empid]);
+  const targetEmployee =
+    empdata1 && empdata1.find((employee) => employee.id === targetEmployeeId1);
+  
   return (
-    <div style={{ textAlign: "left", margin: "20px" }}>
-      <div className="card-title">
-        <h2>Employee Details:</h2>
-      </div>
-      <div className="card-body">
-        <h4>Employ id: {empdata.id}</h4>
-        <h4>The Employee name : {empdata.name} ,</h4>
-        <h4>Email: {empdata.email}</h4>
-        <h4>Phone: {empdata.phone}</h4>
-        <h4>Sports: {empdata.sports}</h4>
-        <Link to="/" className="btn btn-danger">
-          Back to Listing
-        </Link>
-      </div>
+    <div>
+      <Modal show={showModal2} onHide={closeModal2}>
+        <Modal.Header>
+          <h2>Employee Details</h2>
+          <Button className="btn btn-danger" onClick={closeModal2}>
+            X
+          </Button>
+        </Modal.Header>
+        <Modal.Body>
+          <>
+            {targetEmployee ? (
+              <div key={targetEmployee.id}>
+                <h5>id: {targetEmployee.id}</h5>
+                <h5>name: {targetEmployee.name}</h5>
+                <h5>email: {targetEmployee.email}</h5>
+                <h5>phone: {targetEmployee.phone}</h5>
+                <h5>sports: {targetEmployee.sports}</h5>
+                {/* Add any additional details you want to display */}
+              </div>
+            ) : (
+              <p>No Employee found</p>
+            )}
+          </>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={closeModal2} variant="danger">
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 }

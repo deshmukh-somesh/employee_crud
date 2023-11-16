@@ -1,48 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
+  padding: 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App h1 {
+  margin: 2rem 0rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.btn {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-evenly;
+  margin: 0.6rem;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.btn{
-  display:flex;
-  justify-content:space-evenly;
-  margin:0.6rem;
-}
-
-.divbtn{
+.divbtn {
   float: left;
+}
+
+label {
+  margin: 3.7px 0px;
+}
+
+.emp {
+  margin: 2px;
+}
+
+.backbtn {
+  background-color: blanchedalmond;
+}
+
+.card-title h2 {
+  margin: 3.5px 0px 3.5px 14.5px;
+}
+
+/* button to save and moving back to listing */
+.ctn1,
+.form1 {
+  padding: 0;
+}
+
+.btn1{
+  margin-left: 0;
+}
+
+
+.status-indicator {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.status-indicator.active {
+  background-color: green;
+}
+
+.status-indicator.inactive {
+  background-color: red;
 }

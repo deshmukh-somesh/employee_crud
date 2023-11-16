@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
+
 import { useParams, useNavigate, Link } from "react-router-dom";
+import SuccessModal from "./Modal/SuccessModal";
 const EmpEdit = () => {
   const { empid } = useParams();
   const [empdata, empdatachange] = useState({});
@@ -10,7 +12,11 @@ const EmpEdit = () => {
   const [sports, setSports] = useState("");
   const [active, setActive] = useState(true);
   const [validation, setValidation] = useState(false);
+  // show modal 
+  const [showModal,setShowModal] = useState(false);
   const navigate = useNavigate();
+
+
 
   useEffect(() => {
     fetch("http://localhost:8000/employee/" + empid)
@@ -30,6 +36,11 @@ const EmpEdit = () => {
       });
   }, [empid]);
 
+  const handleModalClose = ()=>{
+    setShowModal(false);
+    navigate("/")
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log({id,name,email,phone,sports,active})
@@ -41,8 +52,10 @@ const EmpEdit = () => {
       body: JSON.stringify(empdata),
     })
       .then((res) => {
-        alert("saved successfully.");
-        navigate("/");
+        // alert("saved successfully.");
+        setShowModal(true);
+        // navigate("/")
+       
 
         // we have to revert back to the employee listing page
         // we make use of navigator hook
@@ -63,16 +76,17 @@ const EmpEdit = () => {
               </div>
               <div className="card-body">
                 <div className="row">
-                  <div className="col-lg-12">
-                    <div className="form-group">
-                      <label>ID</label>
+                  {/* <div className="col-lg-12"> */}
+                    {/* <div className="form-group"> */}
+                      {/* <label>ID</label>
                       <input
+                      
                         value={id}
                         disabled="disabled"
                         className="form-control"
-                      />
-                    </div>
-                  </div>
+                      /> */}
+                    {/* </div> */}
+                  {/* </div> */}
                   {/* 2nd field for name */}
                   <div className="col-lg-12">
                     <div className="form-group">
@@ -85,7 +99,7 @@ const EmpEdit = () => {
                         className="form-control"
                         required
                       />
-                      {name.length == 0 && validation && (
+                      {name.length === 0 && validation && (
                         <span className="text-danger">Enter the name </span>
                       )}
                     </div>
@@ -144,14 +158,14 @@ const EmpEdit = () => {
                     </div>
                   </div>
                   {/* adding save and back button */}
-                  <div className="col-lg-12">
-                    <div className="form-check">
-                      <button className="btn btn-success" type="submit">
+                  <div className="col-lg-12 ctn1">
+                    <div className="form1">
+                      <button className="btn btn-success btn1" type="submit">
                         Save
                       </button>
                       {/* <button className="btn btn-danger" type="submit">Back</button> */}
-                      <Link to="/" className="btn btn-danger">
-                        Back
+                      <Link to="/" className="btn btn-primary">
+                        Back to List
                       </Link>
                     </div>
                   </div>
@@ -161,6 +175,7 @@ const EmpEdit = () => {
           </form>
         </div>
       </div>
+      <SuccessModal showModal={showModal} handleModalClose = {handleModalClose}></SuccessModal>
     </div>
   );
 };

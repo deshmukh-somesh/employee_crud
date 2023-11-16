@@ -1,49 +1,44 @@
 {
   "employee": [
     {
-      "id": 1,
-      "name": "Deshmukh Somesh",
-      "email": "deshmukhsomesh777@gmail.com",
-      "phone": "9588466302",
-      "sports": "Football"
-    },
-    {
-      "name": "parmar",
-      "email": "deepakparmar",
-      "phone": "84389433493493",
-      "sports": "UpGrade",
-      "active": true,
-      "id": 2
-    },
-    {
-      "name": "Deshmukh Somesh",
-      "email": "deshmukhsomesh777@gmail.com",
-      "phone": "9588466302",
-      "sports": "basketball",
-      "id": 5
-    },
-    {
-      "id": 6,
-      "name": "Deshmukh Somesh",
-      "email": "deshmukhsomesh777@gmail.com",
-      "phone": "9588466302",
-      "sports": "hiphop"
-    },
-    {
-      "id": 7,
-      "name": "fdfdfdfd",
-      "email": "affdfdfd",
-      "phone": "455453532425",
-      "sports": "jumping",
-      "active": true
+      "id": 3,
+      "name": "Deshmukh Product Options * Shivkumar",
+      "email": "deshmukhsomesh7777@gmail.com",
+      "phone": "09588466302",
+      "sports": "swimming",
+      "active": false
     },
     {
       "name": "Deshmukh Product Options * Shivkumar",
       "email": "deshmukhsomesh7777@gmail.com",
       "phone": "09588466302",
-      "sports": "fdfdd",
+      "sports": "",
       "active": true,
-      "id": 8
+      "id": 4
+    },
+    {
+      "name": "Deshmukh Product Options * Shivkumar",
+      "email": "deshmukhsomesh7777@gmail.com",
+      "phone": "09588466302",
+      "sports": "football",
+      "active": false,
+      "id": 5
+    },
+    {
+      "name": "Deshmukh Product Options * Shivkumar",
+      "email": "deshmukhsomesh7777@gmail.com",
+      "phone": "09588466302",
+      "sports": "jumping",
+      "active": true,
+      "id": 6
+    },
+    {
+      "id": 7,
+      "name": "Deshmukh Product Options * Shivkumar",
+      "email": "deshmukhsomesh7777@gmail.com",
+      "phone": "09588466302",
+      "sports": "running",
+      "active": false
     }
   ]
 }

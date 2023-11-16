@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import SuccessModal from "./Modal/SuccessModal";
 
 const EmpCreate = () => {
   const [id, setId] = useState("");
@@ -7,10 +8,18 @@ const EmpCreate = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [sports, setSports] = useState("");
-  const [active, setActive] = useState(true);
+  const [active, setActive] = useState(false);
+ 
   const [validation, setValidation] = useState(false);
+  // state to handle the modal
+  const [showModal,setShowModal] = useState(false);
   const navigate = useNavigate();
 
+
+  // function to close the modal 
+  const handleModalClose = ()=>{
+    setShowModal(false);
+  }
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log({id,name,email,phone,sports,active})
@@ -22,8 +31,11 @@ const EmpCreate = () => {
       body: JSON.stringify(empdata),
     })
       .then((res) => {
-        alert("saved successfully.");
-        navigate("/");
+        // alert("saved successfully.");
+setShowModal(true);
+console.log("executed")
+        // navigate("/");
+
 
         // we have to revert back to the employee listing page
         // we make use of navigator hook
@@ -40,11 +52,11 @@ const EmpCreate = () => {
           <form className="container" onSubmit={handleSubmit}>
             <div className="card" style={{ textAlign: "left" }}>
               <div className="card-title">
-                <h2>Employee create</h2>
+                <h2>Create Employee</h2>
               </div>
               <div className="card-body">
                 <div className="row">
-                  <div className="col-lg-12">
+                  {/* <div className="col-lg-12">
                     <div className="form-group">
                       <label>ID</label>
                       <input
@@ -53,7 +65,7 @@ const EmpCreate = () => {
                         className="form-control"
                       />
                     </div>
-                  </div>
+                  </div> */}
                   {/* 2nd field for name */}
                   <div className="col-lg-12">
                     <div className="form-group">
@@ -118,21 +130,25 @@ const EmpCreate = () => {
                         type="checkbox"
                         checked={active}
                         className="form-check-input"
-                        onChange={(e) => setActive(e.target.checked)}
+                        onChange={(e) => {
+                          console.log("chekcbox change:" , e.target.checked);
+                          setActive(e.target.checked)}
+                        }
+                         
                       />
                       {/* <input type="checkbox" className="form-check-input" onChange={e=>setName(e.target.checked)}></input> */}
                       <label className="form-check-label">Is Active</label>
                     </div>
                   </div>
                   {/* adding save and back button */}
-                  <div className="col-lg-12">
-                    <div className="form-check">
-                      <button className="btn btn-success" type="submit">
+                  <div className="col-lg-12 ctn1" >
+                    <div className=" form1" >
+                      <button className="btn btn-success btn1" type="submit">
                         Save
                       </button>
                       {/* <button className="btn btn-danger" type="submit">Back</button> */}
-                      <Link to="/" className="btn btn-danger">
-                        Back
+                      <Link to="/" className="btn btn-primary backbtn">
+                        Back to List
                       </Link>
                     </div>
                   </div>
@@ -142,6 +158,7 @@ const EmpCreate = () => {
           </form>
         </div>
       </div>
+      <SuccessModal showModal={showModal} handleModalClose = {handleModalClose}></SuccessModal>
     </div>
   );
 };
